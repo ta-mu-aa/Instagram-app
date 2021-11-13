@@ -1,2 +1,14 @@
-<%= @target_url %>
-<%= @target_user %>
+<%# 投稿一覧表示 %>
+<% array_data = @result_json["media"]["data"] %>
+<ul>
+    <% array_data.each do |val| %>
+    <li>
+        <a href="<%= val['permalink'] %>">
+            <figure>
+                <img src="<%= val['media_url'] %>" >
+            </figure>
+            <p><%= val['caption'] %></p>
+        </a>
+    </li>
+    <% end %>
+</ul>
