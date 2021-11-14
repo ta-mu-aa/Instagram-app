@@ -1,3 +1,86 @@
-// Place all the styles related to the instagram controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// ホーム画面
+.p-home{
+    &Select{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+        margin: 60px 0 80px;
+        &__box{
+            width: 30%;
+            box-shadow: 1px 2px 8px rgb(200, 200, 200);
+            text-align: center;
+            padding: 16px 20px;
+            margin: 0 0 30px;
+            &:hover{
+                outline: 2px solid rgb(79, 214, 85);
+                outline-offset: -2px;
+            }
+            &.-selected{
+                position: relative;
+                outline: 2px solid rgb(79, 214, 85);
+                outline-offset: -2px;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background: image-url('icon_checked.png') no-repeat;
+                    background-size: contain;
+                    top: -10px;
+                    left: -10px;
+                }
+            }
+        }
+        &__btn{
+            text-align: center;
+            a{
+                color: #FFFFFF;
+                display: inline-block;
+                background: #fa0;
+                box-shadow: 1px 2px 8px rgb(200, 200, 200);
+                text-align: center;
+                width: 400px;
+                padding: 20px;
+                margin: 0 0 30px;
+                &:hover{
+                    text-decoration: none;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+
+// 投稿一覧画面
+.p-postList{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    &__content{
+        width: 30%;
+        list-style-type: none;
+        margin: 0 0 40px;
+        &Link{
+            display: inline-block;
+            &:hover{
+                opacity: 0.6;
+                text-decoration: none;
+            }
+        }
+        &Image{
+            box-shadow: 1px 2px 8px rgb(200, 200, 200);
+        }
+        &Caption{
+            margin: 10px 0 0 ;
+            color: #000000;
+            line-height: 1.4;
+            height: 62px;
+            overflow: hidden;
+        }
+    }
+}

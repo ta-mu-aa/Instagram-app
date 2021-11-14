@@ -3,6 +3,14 @@ class InstagramController < ApplicationController
     require 'json'
 
     def home
+        @select_id = params[:select_id]
+
+    end
+
+    def post_list 
+        @select_id = params[:select_id]
+        @selectID = 1
+
         instagram_business_id = ENV["INSTAGRAM_BUSINESS_ID"]
         access_token = ENV["ACCESS_TOKEN"]
         target_user = ENV["TARGET_USER"]
@@ -17,5 +25,6 @@ class InstagramController < ApplicationController
         res = client.get(target_url)
         #ハッシュ化して返す
         @result_json =  JSON.parse(res.body)
+
     end
 end

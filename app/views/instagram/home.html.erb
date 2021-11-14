@@ -1,14 +1,55 @@
-<%# 投稿一覧表示 %>
-<% array_data = @result_json["media"]["data"] %>
-<ul>
-    <% array_data.each do |val| %>
-    <li>
-        <a href="<%= val['permalink'] %>">
-            <figure>
-                <img src="<%= val['media_url'] %>" >
-            </figure>
-            <p><%= val['caption'] %></p>
-        </a>
-    </li>
-    <% end %>
-</ul>
+<div class="p-home">
+    <div class="p-homeSelect">
+        <div id='1' class="p-homeSelect__box">
+            甘いもの好き
+        </div>
+        <div id='2' class="p-homeSelect__box">
+            珈琲が美味しいお店
+        </div>
+        <div id='3' class="p-homeSelect__box">
+            おしゃれなお店
+        </div>
+        <div id='4' class="p-homeSelect__box">
+            ランチが美味しいお店
+        </div>
+        <div id='5' class="p-homeSelect__box">
+            デザートが美味しいお店
+        </div>
+        <div id='6' class="p-homeSelect__box">
+            レトロなお店
+        </div>
+    </div>
+    <div class="p-homeSelect__btn">
+        <%# <%= link_to "おすすめのコースを見る", instagram_post_list_path(select_id:checkID) %>
+        <%= link_to "おすすめのコースを見る", instagram_post_list_path %>
+    </div>
+</div>
+
+
+<%# jquery記述 %>
+<script type="text/javascript">
+// ボックス選択時の処理
+$('.p-homeSelect__box').on('click', function(){
+    if ($('.p-homeSelect__box').hasClass('-selected')){
+        $('.p-homeSelect__box').removeClass('-selected')
+    }
+    $(this).addClass('-selected');
+});
+
+// 送信ボタンを押した時の処理
+$('.p-homeSelect__btn').on('click', function(){
+    let check_id = $('.-selected').attr('id') 
+    $.ajax({
+        url: "/instagram/post_list/",
+        type: "GET",
+        data: { select_id: check_id },
+        dataType: 'html'
+    })
+    .done(function(data) {
+        console.log(data)
+    })
+    .fail(function(data) {
+        alert("errror");
+    })
+});
+</script>
