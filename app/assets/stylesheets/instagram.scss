@@ -51,6 +51,25 @@
             }
         }
     }
+    @media screen and (max-width: 767px) {
+		&Select{
+            display: block;
+            padding: 20px;
+            margin: 30px 0 30px;
+            &__box{
+                width: 100%;
+                padding: 16px 20px;
+                margin: 0 0 20px;
+            }
+            &__btn{
+                a{
+                    width: 80%;
+                    padding: 20px;
+                    margin: 0 0 30px;
+                }
+            }
+        }
+	}
 }
 
 
@@ -59,8 +78,10 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: flex-start;
     padding: 0;
+    margin: 80px 0 30px;
     &__content{
         width: 30%;
         list-style-type: none;
@@ -83,4 +104,15 @@
             overflow: hidden;
         }
     }
+    @media screen and (max-width: 767px) {
+        margin: 40px 0 20px;
+        &__content{
+            width: 45%;
+            margin: 0 0 24px;
+            &Caption{
+                height: 55px;
+                font-size: 14px;
+            }
+        }
+	}
 }

@@ -20,13 +20,12 @@
         </div>
     </div>
     <div class="p-homeSelect__btn">
-        <%# <%= link_to "おすすめのコースを見る", instagram_post_list_path(select_id:checkID) %>
-        <%= link_to "おすすめのコースを見る", instagram_post_list_path %>
+         <a>選択したカテゴリーを見る</a>
     </div>
 </div>
 
 
-<%# jquery記述 %>
+
 <script type="text/javascript">
 // ボックス選択時の処理
 $('.p-homeSelect__box').on('click', function(){
@@ -38,18 +37,11 @@ $('.p-homeSelect__box').on('click', function(){
 
 // 送信ボタンを押した時の処理
 $('.p-homeSelect__btn').on('click', function(){
-    let check_id = $('.-selected').attr('id') 
-    $.ajax({
-        url: "/instagram/post_list/",
-        type: "GET",
-        data: { select_id: check_id },
-        dataType: 'html'
-    })
-    .done(function(data) {
-        console.log(data)
-    })
-    .fail(function(data) {
-        alert("errror");
-    })
-});
+    let check_id = $('.-selected').attr('id')
+
+    // URLにパラメーターを渡してリダイレクト
+    const url = new URL(window.location.href + '/instagram/post_list/');
+    url.searchParams.append('select_id',check_id);
+    location.href = url;
+})
 </script>

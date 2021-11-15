@@ -1,10 +1,8 @@
 <%# 投稿一覧表示 %>
 <div class="p-post">
-    <p><%= @select_id %></p>
     <ul class="p-postList">
-    <% array_data = @result_json["media"]["data"] %>
-        <% if @selectID === 1 %>
-            <% array_data.each do |val| %>
+        <% if @select_id === 1 %>
+            <% @array_data.each do |val| %>
                 <% if val['caption'].include?("インスタ映え") %>
                     <li class="p-postList__content">
                         <a href="<%= val['permalink'] %>" class="p-postList__contentLink">
@@ -17,8 +15,8 @@
                 <% end %>
             <% end %>
         <% end %>
-        <% if @selectID === 2 %>
-            <% array_data.each do |val| %>
+        <% if @select_id === 2 %>
+            <% @array_data.each do |val| %>
                 <% if val['caption'].include?("珈琲") %>
                     <li class="p-postList__content">
                         <a href="<%= val['permalink'] %>" class="p-postList__contentLink">
@@ -31,7 +29,67 @@
                 <% end %>
             <% end %>
         <% end %>
+         <% if @select_id === 3 %>
+            <% @array_data.each do |val| %>
+                <% if val['caption'].include?("おしゃれ") %>
+                    <li class="p-postList__content">
+                        <a href="<%= val['permalink'] %>" class="p-postList__contentLink">
+                            <figure class="p-postList__contentImage">
+                                <img src="<%= val['media_url'] %>" >
+                            </figure>
+                            <p class="p-postList__contentCaption"><%= val['caption'] %></p>
+                        </a>
+                    </li>
+                <% end %>
+            <% end %>
+        <% end %>
+         <% if @select_id === 4 %>
+            <% @array_data.each do |val| %>
+                <% if val['caption'].include?("ランチ") %>
+                    <li class="p-postList__content">
+                        <a href="<%= val['permalink'] %>" class="p-postList__contentLink">
+                            <figure class="p-postList__contentImage">
+                                <img src="<%= val['media_url'] %>" >
+                            </figure>
+                            <p class="p-postList__contentCaption"><%= val['caption'] %></p>
+                        </a>
+                    </li>
+                <% end %>
+            <% end %>
+        <% end %>
+         <% if @select_id === 5 %>
+            <% @array_data.each do |val| %>
+                <% if val['caption'].include?("スイーツ") %>
+                    <li class="p-postList__content">
+                        <a href="<%= val['permalink'] %>" class="p-postList__contentLink">
+                            <figure class="p-postList__contentImage">
+                                <img src="<%= val['media_url'] %>" >
+                            </figure>
+                            <p class="p-postList__contentCaption"><%= val['caption'] %></p>
+                        </a>
+                    </li>
+                <% end %>
+            <% end %>
+        <% end %>
+         <% if @select_id === 6 %>
+            <% @array_data.each do |val| %>
+                <% if val['caption'].include?("レトロ") %>
+                    <li class="p-postList__content">
+                        <a href="<%= val['permalink'] %>" class="p-postList__contentLink">
+                            <figure class="p-postList__contentImage">
+                                <img src="<%= val['media_url'] %>" >
+                            </figure>
+                            <p class="p-postList__contentCaption"><%= val['caption'] %></p>
+                        </a>
+                    </li>
+                <% end %>
+            <% end %>
+        <% end %>
     </ul>
+</div>
+
+<div class="p-homeSelect__btn">
+    <%= link_to "TOPへ戻る", root_path  %> 
 </div>
 
 
