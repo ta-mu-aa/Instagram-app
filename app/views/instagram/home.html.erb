@@ -19,8 +19,9 @@
             レトロなお店
         </div>
     </div>
+    <div class="p-homeSelect__error">※項目を選択してください</div>
     <div class="p-homeSelect__btn">
-         <a>選択したカテゴリーを見る</a>
+         <a>選択した項目の投稿を見る</a>
     </div>
 </div>
 
@@ -36,12 +37,16 @@ $('.p-homeSelect__box').on('click', function(){
 });
 
 // 送信ボタンを押した時の処理
-$('.p-homeSelect__btn').on('click', function(){
+$('.p-homeSelect__btn > a').on('click', function(){
     let check_id = $('.-selected').attr('id')
-
-    // URLにパラメーターを渡してリダイレクト
-    const url = new URL(window.location.href + '/instagram/post_list/');
-    url.searchParams.append('select_id',check_id);
-    location.href = url;
+    if( check_id ){
+        // URLにパラメーターを渡してリダイレクト
+        const url = new URL(window.location.href + 'instagram/post_list/');
+        url.searchParams.append('select_id',check_id);
+        location.href = url;
+    }
+    else{
+        $('.p-homeSelect__error').addClass('-error')
+    }
 })
 </script>
