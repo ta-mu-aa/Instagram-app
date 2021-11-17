@@ -24,6 +24,7 @@ class InstagramController < ApplicationController
         res = client.get(target_url)
         #ハッシュ化して返す
         result_json =  JSON.parse(res.body)
+        #配列に格納
         @array_data = result_json["media"]["data"] 
     end
 end

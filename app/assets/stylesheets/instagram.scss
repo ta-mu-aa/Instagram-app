@@ -4,8 +4,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 20px;
-        margin: 60px 0 80px;
+        padding: 20px 20px 0;
+        margin: 60px 0 ;
         &__box{
             width: 30%;
             box-shadow: 1px 2px 8px rgb(200, 200, 200);
@@ -24,8 +24,8 @@
                     content: "";
                     position: absolute;
                     display: inline-block;
-                    width: 24px;
-                    height: 24px;
+                    width: 28px;
+                    height: 28px;
                     background: image-url('icon_checked.png') no-repeat;
                     background-size: contain;
                     top: -10px;
@@ -36,9 +36,10 @@
         &__btn{
             text-align: center;
             a{
-                color: #FFFFFF;
-                display: inline-block;
+                color: #FFFFFF;;
                 background: #fa0;
+                background: #fa0;
+                display: inline-block;
                 box-shadow: 1px 2px 8px rgb(200, 200, 200);
                 text-align: center;
                 width: 400px;
@@ -50,11 +51,19 @@
                 }
             }
         }
+        &__error{
+            opacity: 0;
+            text-align: center;
+            color: red;
+            margin: 0 0 20px;
+            &.-error{
+                opacity: 1;
+            }
+        }
     }
     @media screen and (max-width: 767px) {
 		&Select{
             display: block;
-            padding: 20px;
             margin: 30px 0 30px;
             &__box{
                 width: 100%;
