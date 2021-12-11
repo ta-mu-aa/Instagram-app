@@ -1,7 +1,8 @@
 <%# 投稿一覧表示 %>
+<%= @select_id %>
 <div class="p-post">
     <ul class="p-postList">
-        <% if @select_id === 1 %>
+        <% if @select_id === "select1" %>
             <% @array_data.each do |val| %>
                 <% if val['caption'].include?("インスタ映え") %>
                     <li class="p-postList__content">
@@ -15,7 +16,7 @@
                 <% end %>
             <% end %>
         <% end %>
-        <% if @select_id === 2 %>
+        <% if @select_id === "select2" %>
             <% @array_data.each do |val| %>
                 <% if val['caption'].include?("珈琲") %>
                     <li class="p-postList__content">
@@ -29,7 +30,7 @@
                 <% end %>
             <% end %>
         <% end %>
-         <% if @select_id === 3 %>
+         <% if @select_id === "select3" %>
             <% @array_data.each do |val| %>
                 <% if val['caption'].include?("おしゃれ") %>
                     <li class="p-postList__content">
@@ -43,7 +44,7 @@
                 <% end %>
             <% end %>
         <% end %>
-         <% if @select_id === 4 %>
+         <% if @select_id === "select4" %>
             <% @array_data.each do |val| %>
                 <% if val['caption'].include?("ランチ") %>
                     <li class="p-postList__content">
@@ -57,7 +58,7 @@
                 <% end %>
             <% end %>
         <% end %>
-         <% if @select_id === 5 %>
+         <% if @select_id === "select5" %>
             <% @array_data.each do |val| %>
                 <% if val['caption'].include?("スイーツ") %>
                     <li class="p-postList__content">
@@ -71,7 +72,7 @@
                 <% end %>
             <% end %>
         <% end %>
-         <% if @select_id === 6 %>
+         <% if @select_id === "select6" %>
             <% @array_data.each do |val| %>
                 <% if val['caption'].include?("レトロ") %>
                     <li class="p-postList__content">
@@ -88,7 +89,7 @@
     </ul>
 </div>
 
-<div class="p-homeSelect__btn">
+<div class="p-homeSelect__btnOrange">
     <%= link_to "TOPへ戻る", root_path  %>
 </div>
 
