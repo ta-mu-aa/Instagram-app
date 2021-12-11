@@ -1,29 +1,39 @@
 <div class="p-home">
+     <p class="u-margin -none -mb20">見つけたいお店を探そう！</p>
+    <%= form_tag("instagram/post_list", method: "get" ,onsubmit:"return submit_validate()") do %>
     <div class="p-homeSelect">
-        <div id='1' class="p-homeSelect__box">
-            甘いもの好き
+        <div class="p-homeSelect__box">
+        <%= radio_button_tag("selectTag", "select1")  %>
+           <p class="p-homeSelect__boxText">甘い物好き</p>
         </div>
-        <div id='2' class="p-homeSelect__box">
-            珈琲が美味しいお店
+        <div class="p-homeSelect__box">
+        <%= radio_button_tag("selectTag", "select2")  %>
+            <p class="p-homeSelect__boxText">珈琲が美味しいお店</p>
         </div>
-        <div id='3' class="p-homeSelect__box">
-            おしゃれなお店
+        <div class="p-homeSelect__box">
+        <%= radio_button_tag("selectTag", "select3")  %>
+            <p class="p-homeSelect__boxText">おしゃれなお店</p>
         </div>
-        <div id='4' class="p-homeSelect__box">
-            ランチが美味しいお店
+        <div class="p-homeSelect__box">
+        <%= radio_button_tag("selectTag", "select4")  %>
+            <p class="p-homeSelect__boxText">ランチが美味しいお店</p>
         </div>
-        <div id='5' class="p-homeSelect__box">
-            デザートが美味しいお店
+        <div class="p-homeSelect__box">
+        <%= radio_button_tag("selectTag", "select5")  %>
+            <p class="p-homeSelect__boxText">デザートが<br class="u-sp">美味しいお店</p>
         </div>
-        <div id='6' class="p-homeSelect__box">
-            レトロなお店
+        <div class="p-homeSelect__box">
+        <%= radio_button_tag("selectTag", "select6")  %>
+            <p class="p-homeSelect__boxText">レトロなお店</p>
         </div>
-    </div>
-    <div class="p-homeSelect__error">※項目を選択してください</div>
-    <div class="p-homeSelect__btn">
-         <a>選択した項目の投稿を見る</a>
     </div>
 </div>
+
+    <div class="p-homeSelect__error">※項目を選択してください</div>
+    <div class="p-homeSelect__btn">
+        <%= submit_tag("選択した項目の投稿を見る",   class:"p-homeSelect__btnOrange")%>
+    </div>
+    <% end %>
 
 
 
@@ -31,22 +41,18 @@
 // ボックス選択時の処理
 $('.p-homeSelect__box').on('click', function(){
     if ($('.p-homeSelect__box').hasClass('-selected')){
-        $('.p-homeSelect__box').removeClass('-selected')
+        $('.p-homeSelect__box').removeClass('-selected');
+        $('.p-homeSelect__box').children('input').prop("checked", false);
     }
-    $(this).addClass('-selected');
+        $(this).addClass('-selected');
+        $(this).children('input').prop("checked", true);
 });
 
 // 送信ボタンを押した時の処理
-$('.p-homeSelect__btn > a').on('click', function(){
-    let check_id = $('.-selected').attr('id')
-    if( check_id ){
-        // URLにパラメーターを渡してリダイレクト
-        const url = new URL(window.location.href + 'instagram/post_list/');
-        url.searchParams.append('select_id',check_id);
-        location.href = url;
+function submit_validate() {
+    if(!$('.p-homeSelect__box').hasClass('-selected')) {
+        $('.p-homeSelect__error').addClass('-error')    
+        return false;
     }
-    else{
-        $('.p-homeSelect__error').addClass('-error')
-    }
-})
+}
 </script>
