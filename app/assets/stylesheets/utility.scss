@@ -1,0 +1,44 @@
+.u-pc{
+    display: block;
+    @media screen and (max-width: 767px) {
+        display: none;
+    }   
+}
+.u-sp{
+    display: none;
+    @media screen and (max-width: 767px) {
+        display: block;
+    }   
+}
+
+/* --------------------------------------------------
+  align
+-------------------------------------------------- */
+.u-alignL {text-align: left;}
+.u-alignC {text-align: center;}
+.u-alignR {text-align: right;}
+
+/* --------------------------------------------------
+  margin
+-------------------------------------------------- */
+.u-margin {
+	&.-short {margin-bottom: 16px;}
+	&.-middle {margin-bottom: 32px;}
+	&.-large {margin-bottom: 64px;}    
+	&.-none {margin: 0;}    
+	&.-mt10 {margin-top: 10px;}    
+	&.-mt15 {margin-top: 15px;}    
+	&.-mt20 {margin-top: 20px;}    
+	&.-mt30 {margin-top: 30px;}    
+	&.-mb10 {margin-bottom: 10px;}    
+	&.-mb15 {margin-bottom: 15px;}    
+	&.-mb20 {margin-bottom: 20px;}    
+	&.-mb30 {margin-bottom: 30px;}    
+}
+
+/* --------------------------------------------------
+  padding
+-------------------------------------------------- */
+// 縦横比指定
+.-ratio16-9 {padding-top: (9/16) * 100%;}
+.-ratio4-3 {padding-top: (3/4) * 100%;}

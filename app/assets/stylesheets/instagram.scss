@@ -1,24 +1,35 @@
 // ホーム画面
 .p-home{
+    background: #F7F7F7;
+    padding: 30px 20px;
+    margin: 30px auto;
     &Select{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 20px 20px 0;
-        margin: 60px 0 ;
+        padding: 20px 10px 0;
         &__box{
-            width: 30%;
+            width: 270px;
+            height: 180px;
             box-shadow: 1px 2px 8px rgb(200, 200, 200);
             text-align: center;
-            padding: 16px 20px;
             margin: 0 0 30px;
-            &:hover{
-                outline: 2px solid rgb(79, 214, 85);
-                outline-offset: -2px;
+            font-weight: bold;
+            background:image-url('img_select01.jpg') no-repeat; ;
+            background-size: cover;
+            border-radius: 10px;
+            position: relative;
+            &Text{
+                position: absolute;
+                top: 44%;
+                left: 0;
+                right: 0;
+                color: #ffffff;
+                margin: auto;
             }
             &.-selected{
                 position: relative;
-                outline: 2px solid rgb(79, 214, 85);
+                outline: 4px solid rgb(79, 214, 85);
                 outline-offset: -2px;
                 &::after{
                     content: "";
@@ -32,46 +43,61 @@
                     left: -10px;
                 }
             }
+            input[type=radio]{
+                display:none;
+            }
         }
         &__btn{
             text-align: center;
-            a{
-                color: #FFFFFF;;
+            margin: 0 auto;
+            &Orange{
+                color: #FFFFFF;
                 background: #fa0;
                 background: #fa0;
-                display: inline-block;
                 box-shadow: 1px 2px 8px rgb(200, 200, 200);
                 text-align: center;
                 width: 400px;
                 padding: 20px;
-                margin: 0 0 30px;
+                margin: 0 auto 30px;
+                border: none;
+                font-size: 16px;
+                border-radius: 50px;
                 &:hover{
                     text-decoration: none;
                     opacity: 0.7;
                 }
+                a{
+                    display: block;
+                    color: #FFFFFF;
+                    text-decoration: none;
+                    z-index: 10;
+                }
             }
         }
         &__error{
-            opacity: 0;
+            display:none;
             text-align: center;
             color: red;
             margin: 0 0 20px;
             &.-error{
-                opacity: 1;
+                display: block;
             }
         }
     }
     @media screen and (max-width: 767px) {
+        margin: 20px 0 30px;
+        padding: 20px 10px;
 		&Select{
-            display: block;
-            margin: 30px 0 30px;
+            padding: 0;
+            flex-wrap: wrap;
             &__box{
-                width: 100%;
-                padding: 16px 20px;
+                width:48%;
+                height: 30vw;
                 margin: 0 0 20px;
+                background-position: right;
             }
             &__btn{
-                a{
+                &Orange{
                     width: 80%;
                     padding: 20px;
                     margin: 0 0 30px;
