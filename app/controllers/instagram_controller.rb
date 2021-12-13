@@ -6,6 +6,9 @@ class InstagramController < ApplicationController
 
     end
 
+    def about
+    end
+
     def post_list 
         @select_id= params[:selectTag]
 
