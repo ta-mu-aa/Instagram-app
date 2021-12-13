@@ -46,11 +46,12 @@ $('.p-homeSelect__box').on('click', function(){
     }
         $(this).addClass('-selected');
         $(this).children('input').prop("checked", true);
+        $(".p-homeSelect__btnOrange").removeAttr("disabled");
 });
 
 // 送信ボタンを押した時の処理
 function submit_validate() {
-    if(!$('.p-homeSelect__box').hasClass('-selected')) {
+    if(!$('input:radio[name="selectTag"]:checked').val()) {
         $('.p-homeSelect__error').addClass('-error')    
         return false;
     }
