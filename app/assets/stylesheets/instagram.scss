@@ -1,7 +1,63 @@
 // 愛媛ログについて
 .p-about{
-    
+    &__mv{
+        position: relative;
+        &Image{
+            width: 100%;
+        }
+        &Text{
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            font-size: 30px;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+    }
+    &__titleBlock{
+        background: rgba(3, 238, 128, 0.06);
+        margin: 0 auto;
+        padding: 60px 0 40px;
+        text-align: center;
+        &__text{
+            margin: 0;
+            font-size: 24px;
+            &Color{
+                font-family: 'Corporate-Logo-Medium-ver2';
+                color: #ffff00;
+                text-shadow: 1px 2px 3px #929292;
+            }
+        }
+        &__detail{
+            font-size: 16px;
+            font-weight: normal;
+            max-width: 600px;
+            margin: 10px auto ;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        &__mv{
+            &Text{
+                top: 10%;
+                right: 5%;
+                font-size: 18px;
+            }
+        }
+        &__titleBlock{
+            padding: 40px 0 30px;
+            &__text{
+                margin: 0;
+                font-size: 24px;
+            }
+            &__detail{
+                max-width: auto;
+                margin: 20px auto ;
+            }
+        }
+    }
 }
+
+
 // ホーム画面
 .p-home{
     background: #F7F7F7;

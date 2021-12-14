@@ -10,7 +10,7 @@ class InstagramController < ApplicationController
     end
 
     def post_list 
-        @select_id= params[:selectTag]
+        @select_id = params[:selectTag]
 
         instagram_business_id = ENV["INSTAGRAM_BUSINESS_ID"]
         access_token = ENV["ACCESS_TOKEN"]
