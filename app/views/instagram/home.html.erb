@@ -1,3 +1,4 @@
+<div class="l-container">
 <div class="p-home">
      <p class="u-margin -none -mb20">見つけたいお店を探そう！</p>
     <%= form_tag("instagram/post_list", method: "get" ,onsubmit:"return submit_validate()") do %>
@@ -34,6 +35,7 @@
         <%= submit_tag("選択した項目の投稿を見る",   class:"p-homeSelect__btnOrange")%>
     </div>
     <% end %>
+</div>
 
 
 
