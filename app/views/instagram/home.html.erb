@@ -1,58 +1,68 @@
 <div class="l-container">
+
 <div class="p-home">
-     <p class="u-margin -none -mb20">見つけたいお店を探そう！</p>
-    <%= form_tag("instagram/post_list", method: "get" ,onsubmit:"return submit_validate()") do %>
+
+    <%= form_tag("/instagram/post_list", method: "get" ,onsubmit:"return submit_validate()") do %>
     <div class="p-homeSelect">
-        <div class="p-homeSelect__box">
-        <%= radio_button_tag("selectTag", "select1")  %>
-           <p class="p-homeSelect__boxText">甘い物好き</p>
+        <h3 class="p-homeSelect__boxTitle">今日の気分を選択</h3>
+        <p class="p-homeSelect__boxAbout">今日の気分に合った項目を選択してください。愛媛ログのインスタグラムの投稿から最適なお店を紹介します！</p>
+        <div class="p-homeSelect__box -box1">
+            <%= radio_button_tag("selectTag", "select1")  %>
+            <p class="p-homeSelect__boxText">インスタ映え</p>
         </div>
-        <div class="p-homeSelect__box">
-        <%= radio_button_tag("selectTag", "select2")  %>
-            <p class="p-homeSelect__boxText">珈琲が美味しいお店</p>
+        <div class="p-homeSelect__box -box2">
+            <%= radio_button_tag("selectTag", "select2")  %>
+            <p class="p-homeSelect__boxText">こだわりの珈琲</p>
         </div>
-        <div class="p-homeSelect__box">
-        <%= radio_button_tag("selectTag", "select3")  %>
-            <p class="p-homeSelect__boxText">おしゃれなお店</p>
+        <div class="p-homeSelect__box -box3">
+            <%= radio_button_tag("selectTag", "select3")  %>
+            <p class="p-homeSelect__boxText">デートにぴったり</p>
         </div>
-        <div class="p-homeSelect__box">
-        <%= radio_button_tag("selectTag", "select4")  %>
-            <p class="p-homeSelect__boxText">ランチが美味しいお店</p>
+        <div class="p-homeSelect__box -box4">
+            <%= radio_button_tag("selectTag", "select4")  %>
+            <p class="p-homeSelect__boxText">美味しいランチ</p>
         </div>
-        <div class="p-homeSelect__box">
-        <%= radio_button_tag("selectTag", "select5")  %>
-            <p class="p-homeSelect__boxText">デザートが<br class="u-sp">美味しいお店</p>
+        <div class="p-homeSelect__box -box5">
+            <%= radio_button_tag("selectTag", "select5")  %>
+            <p class="p-homeSelect__boxText">美味しいスイーツ</p>
         </div>
-        <div class="p-homeSelect__box">
-        <%= radio_button_tag("selectTag", "select6")  %>
-            <p class="p-homeSelect__boxText">レトロなお店</p>
+        <div class="p-homeSelect__box -box6">
+            <%= radio_button_tag("selectTag", "select6")  %>
+            <p class="p-homeSelect__boxText">レトロな雰囲気</p>
         </div>
     </div>
-</div>
 
     <div class="p-homeSelect__error">※項目を選択してください</div>
     <div class="p-homeSelect__btn">
-        <%= submit_tag("選択した項目の投稿を見る",   class:"p-homeSelect__btnOrange")%>
+        <%= submit_tag("選択した項目の投稿を見る",   class:"p-homeSelect__btnOrange u-margin -mb40")%>
     </div>
     <% end %>
+</div>
 </div>
 
 
 
 <script type="text/javascript">
 // ボックス選択時の処理
+if($('input:radio[name="selectTag"]:checked').val()){
+    $(this).addClass('-selected');
+    console.log('チェックがついています')
+}
 $('.p-homeSelect__box').on('click', function(){
     if ($('.p-homeSelect__box').hasClass('-selected')){
         $('.p-homeSelect__box').removeClass('-selected');
         $('.p-homeSelect__box').children('input').prop("checked", false);
+        console.log('選択解除しました')
     }
         $(this).addClass('-selected');
         $(this).children('input').prop("checked", true);
         $(".p-homeSelect__btnOrange").removeAttr("disabled");
+        console.log('選択しました')
 });
 
 // 送信ボタンを押した時の処理
 function submit_validate() {
+    console.log('送信しました')
     if(!$('input:radio[name="selectTag"]:checked').val()) {
         $('.p-homeSelect__error').addClass('-error')    
         return false;

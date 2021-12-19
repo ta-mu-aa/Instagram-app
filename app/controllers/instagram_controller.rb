@@ -3,7 +3,7 @@ class InstagramController < ApplicationController
     require 'json'
 
     def home
-
+        
     end
 
     def about

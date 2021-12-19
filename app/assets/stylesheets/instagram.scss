@@ -34,6 +34,14 @@
             max-width: 600px;
             margin: 10px auto ;
         }
+        &__picture{
+            display: flex;
+            justify-content: center;
+            margin: 60px 0 50px;
+            &Image{
+                width: 33%;
+            }
+        }
     }
     @media screen and (max-width: 767px) {
         &__mv{
@@ -53,6 +61,101 @@
                 max-width: auto;
                 margin: 20px auto ;
             }
+            &__picture{
+                margin: 40px 0 30px;
+                flex-wrap: wrap;
+                &Image{
+                    width: 75%;
+                    margin: 0 0 20px;
+                }
+            }
+        }
+    }
+    
+    &__introduction{
+        background: #ffffe0;
+        padding: 60px 0 50px;
+        &Title{
+            font-size: 24px;
+            text-align: center;
+            margin: 0 0 40px;
+        }
+        &Wrap{
+            display: flex;
+            justify-content:space-between ;
+            padding: 0;
+        }
+        &List{
+            list-style-type:none;
+            box-shadow: 1px 2px 8px rgb(200, 200, 200);
+            padding:0 0  20px;
+            background-color: #FFFFFF;
+            width: 30%;
+            border-radius: 30px;
+            &__image{
+                position: relative;
+                img{
+                    border-radius: 30px 30px 0 0;
+                }
+            }
+            &__caption{
+                position: absolute;
+                display: inline-block;
+                background: rgba(250, 200, 107, 0.7);
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                padding: 4px 0 4px 12px;
+                color: #FFFFFF;
+                font-size: 18px;
+            }
+            &__text{
+                font-size:15px;
+                line-height: 1.5;
+                margin: 0;
+                padding: 20px 20px 10px;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            padding: 40px 0 30px;
+            &Title{
+                font-size: 24px;
+                margin: 0 0 30px;
+            }
+            &Wrap{
+                display: block;
+            }
+            &List{
+                padding:0 0  20px;
+                margin: 0 0 30px;
+                width: 100%;
+                border-radius: 20px;
+                &__image{
+                    img{
+                        border-radius: 20px 20px 0 0;
+                    }
+                }
+                &__caption{
+                    font-size: 20px;
+                    padding: 8px 20px;
+                }
+                &__text{
+                    font-size:14px;
+                    margin: 0;
+                    padding: 16px 20px 6px;
+                }
+            }
+        }
+    }
+    &__invitation{
+        background: rgba(3, 238, 128, 0.06);
+        padding: 50px 0 60px;
+        &Block{
+            text-align: center;
+            &__title{
+                font-size: 24px;
+                margin: 0 0 30px;
+            }
         }
     }
 }
@@ -60,14 +163,15 @@
 
 // ホーム画面
 .p-home{
-    background: #F7F7F7;
     padding: 30px 20px;
     margin: 30px auto;
     &Select{
+        background: #fbf7ec;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 20px 10px 0;
+        padding: 20px 30px 0;
+        margin: 0 0 50px;
         &__box{
             width: 270px;
             height: 180px;
@@ -75,17 +179,49 @@
             text-align: center;
             margin: 0 0 30px;
             font-weight: bold;
-            background:image-url('img_select01.jpg') no-repeat; ;
-            background-size: cover;
             border-radius: 10px;
             position: relative;
+            &.-box1{
+                background:image-url('img_select01.jpg') no-repeat; 
+                background-size: cover;
+            }
+            &.-box2{
+                background:image-url('img_select02.jpg') no-repeat; 
+                background-size: cover;
+            }
+            &.-box3{
+                background:image-url('img_select03.jpg') no-repeat; 
+                background-size: cover;
+            }
+            &.-box4{
+                background:image-url('img_select04.jpg') no-repeat; 
+                background-size: cover;
+            }
+            &.-box5{
+                background:image-url('img_select05.jpg') no-repeat; 
+                background-size: cover;
+            }
+            &.-box6{
+                background:image-url('img_select06.jpg') no-repeat; 
+                background-size: cover;
+            }
+            &Title{
+                font-size: 20px;
+                margin: 0 auto 20px;
+            }
+            &About{
+                margin: 0 auto 20px;
+                padding: 0 16px;
+            }
             &Text{
                 position: absolute;
-                top: 44%;
+                bottom: 0;
                 left: 0;
                 right: 0;
                 color: #ffffff;
                 margin: auto;
+                background-color: rgba(0, 0, 0, 0.6);
+                border-radius: 0 0 10px 10px;
             }
             &.-selected{
                 position: relative;
@@ -151,17 +287,27 @@
 		&Select{
             padding: 0;
             flex-wrap: wrap;
+            margin: 0 0 30px;
             &__box{
                 width:48%;
                 height: 30vw;
                 margin: 0 0 20px;
                 background-position: right;
+                &Title{
+                    margin: 16px auto;
+                }
+                &About{
+                    margin: 0 auto 20px;
+                }
+                &Text{
+                    font-size: 4vw;
+                }
             }
             &__btn{
                 &Orange{
                     width: 80%;
                     padding: 20px;
-                    margin: 0 0 30px;
+                    margin: 0 auto 30px;
                 }
             }
         }
