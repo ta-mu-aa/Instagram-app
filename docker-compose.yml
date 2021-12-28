@@ -3,7 +3,8 @@ services:
   app:
     build:
       context: .
-    command: bundle exec puma -C config/puma.rb
+      command: bundle exec puma -C config/puma.rb -e production
+    # command: bundle exec puma -C config/puma.rb
 
     volumes:
       - .:/ehime-log
@@ -12,20 +13,20 @@ services:
       - log-data:/ehime-log/log
     networks:
       - ehime-log-network
-    depends_on:
-      - db
+  #   depends_on:
+  #     - db
 
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: ehime-log_development
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - ehime-log-network
+  # db:
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_DATABASE: ehime-log_development
+  #   volumes:
+  #     - db-data:/var/lib/mysql
+  #   networks:
+  #     - ehime-log-network
 
   web:
     build:
