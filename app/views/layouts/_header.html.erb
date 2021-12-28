@@ -1,0 +1,23 @@
+<header class="l-header">
+  <div class="l-headerContainer">
+    <a href="/" class="l-headerLink">
+      <h1 class="l-headerTitle">愛媛ログ<span class="l-headerTitle__sub">愛媛の学生〜カフェ紹介〜</span></h1>   
+    </a>
+    <nav class="u-pc">
+      <ul class="l-headerMenu">
+        <li class="l-headerMenu__list"><%= link_to "TOP", root_path, {class:"l-headerMenu__listLink"} %></li>
+        <li class="l-headerMenu__list"><%= link_to "愛媛ログとは", '/instagram/about/', {class:"l-headerMenu__listLink"} %></li>
+      </ul>
+    </nav>
+<%# SP時のハンバーガーメニュー %>
+    <nav class="u-sp">
+      <button type="button" class="l-headerMenuSp__btn">
+        <span class="l-headerMenuSp__btnLine js-headerMenuSP"></span>
+      </button>
+      <ul class="l-headerMenuSp">
+        <li class="l-headerMenuSp__list"><%= link_to "TOP", root_path, {class:"l-headerMenuSp__listLink"} %></li>
+        <li class="l-headerMenuSp__list"><%= link_to "愛媛ログについて", '/instagram/about/', {class:"l-headerMenuSp__listLink"} %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
