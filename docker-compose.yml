@@ -1,21 +1,51 @@
 version: '3'
 services:
+  app:
+    build:
+      context: .
+    command: bundle exec puma -C config/puma.rb
+
+    volumes:
+      - .:/ehime-log
+      - public-data:/ehime-log/public
+      - tmp-data:/ehime-log/tmp
+      - log-data:/ehime-log/log
+    networks:
+      - ehime-log-network
+    depends_on:
+      - db
+
   db:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: root
-    ports:
-      - "3306:3306"
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: ehime-log_development
     volumes:
-      - ./tmp/db:/var/lib/mysql
+      - db-data:/var/lib/mysql
+    networks:
+      - ehime-log-network
 
   web:
-    build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    build:
+      context: ./nginx_docker
     volumes:
-      - .:/myapp
+      - public-data:/ehime-log/public
+      - tmp-data:/ehime-log/tmp
     ports:
-      - "3000:3000"
+      - 80:80
     depends_on:
-      - db
+      - app
+    networks:
+      - ehime-log-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
+
+networks:
+  ehime-log-network:
+    external: true
